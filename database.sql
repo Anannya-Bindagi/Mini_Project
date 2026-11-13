@@ -1,9 +1,3 @@
--- =====================================================
--- PROJECT: TRANSACTION-BASED LEDGER AND BALANCE SYSTEM
--- DOMAIN: VEHICLE RENTAL AND RETURN LEDGER
--- DATABASE: transaction_ledger_db
--- =====================================================
-
 
 -- =====================================================
 -- 1. DATABASE CREATION
