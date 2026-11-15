@@ -142,6 +142,22 @@ WHERE NOT EXISTS (
 );
 
 
+INSERT INTO CUSTOMER_TABLE
+(customer_name, phone_number)
+VALUES
+('Kiran Desai', '9876123450'),
+('Neha Kulkarni', '9845123670'),
+('Rohan Mehta', '9900456781'),
+('Ananya Rao', '9987654321'),
+('Vikram Joshi', '9845987654');
+
+
+
+SELECT *
+FROM CUSTOMER_TABLE
+ORDER BY customer_id;
+
+
 -- =====================================================
 -- 8. INSERT SAMPLE RENTAL TRANSACTION
 -- =====================================================
