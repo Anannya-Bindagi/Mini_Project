@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VeloRent | Vehicle Rental System</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
 
+<body>
 <div class="app">
 
     <!-- SIDEBAR -->
@@ -19,42 +18,41 @@
             <div class="brand-icon">V</div>
             <div>
                 <h2>VeloRent</h2>
-                <span>RENTAL MANAGEMENT</span>
+                <span>Vehicle Rental System</span>
             </div>
         </div>
 
         <p class="menu-label">MAIN MENU</p>
 
         <nav>
-            <a class="nav-link active" href="#" data-page="dashboard">
+            <a href="#" class="nav-link active" data-page="dashboard">
                 <i data-lucide="layout-dashboard"></i> Dashboard
             </a>
-            <a class="nav-link" href="#" data-page="vehicles">
+            <a href="#" class="nav-link" data-page="vehicles">
                 <i data-lucide="car-front"></i> Vehicles
             </a>
-            <a class="nav-link" href="#" data-page="customers">
+            <a href="#" class="nav-link" data-page="customers">
                 <i data-lucide="users"></i> Customers
             </a>
-            <a class="nav-link" href="#" data-page="rentals">
-                <i data-lucide="key-round"></i> New Rental
+            <a href="#" class="nav-link" data-page="rentals">
+                <i data-lucide="clipboard-list"></i> Rentals
             </a>
-            <a class="nav-link" href="#" data-page="returns">
-                <i data-lucide="undo-2"></i> Vehicle Returns
+            <a href="#" class="nav-link" data-page="returns">
+                <i data-lucide="rotate-ccw"></i> Returns
             </a>
-            <a class="nav-link" href="#" data-page="availability">
+            <a href="#" class="nav-link" data-page="availability">
                 <i data-lucide="calendar-check"></i> Availability
             </a>
-            <a class="nav-link" href="#" data-page="ledger">
-                <i data-lucide="book-open"></i> Transaction Ledger
+            <a href="#" class="nav-link" data-page="ledger">
+                <i data-lucide="wallet"></i> Transaction Ledger
             </a>
-            <a class="nav-link" href="#" data-page="reports">
-                <i data-lucide="chart-no-axes-combined"></i> Reports
+            <a href="#" class="nav-link" data-page="reports">
+                <i data-lucide="chart-column"></i> Reports
             </a>
         </nav>
 
         <div class="sidebar-bottom">
             <div class="admin-profile">
-                <div class="avatar">A</div>
                 <div>
                     <strong>Administrator</strong>
                     <span>System Manager</span>
@@ -68,27 +66,36 @@
 
         <header class="topbar">
             <div>
-                <p class="breadcrumb">Workspace / <strong id="breadcrumb">Dashboard</strong></p>
-                <h2 id="page-heading">Dashboard Overview</h2>
+                <p class="breadcrumb">
+                    VeloRent / <span id="breadcrumb">Dashboard</span>
+                </p>
+                <h1 id="page-heading">Dashboard Overview</h1>
             </div>
-
             <div class="topbar-right">
-                <div class="today-date" id="today-date"></div>
-                <div class="notification">
-                    <i data-lucide="bell"></i>
-                </div>
+                <span id="today-date"></span>
             </div>
         </header>
 
         <!-- DASHBOARD -->
         <section class="page active" id="dashboard">
-            <div class="welcome-banner">
-                <div>
-                    <span class="eyebrow">VELORENT WORKSPACE</span>
-                    <h2>Welcome back, Administrator!</h2>
-                    <p>Here's what's happening with your rental business today.</p>
+
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">FLEET MANAGEMENT</span>
+                    <h2>Manage your fleet<br>with confidence.</h2>
+                    <p>Monitor vehicles, customers and rental activity from one place.</p>
+                    <button class="hero-button" onclick="navigate('vehicles')">
+                        Explore Vehicles
+                    </button>
                 </div>
-                <div class="banner-icon"><i data-lucide="car-front"></i></div>
+                <div class="hero-image"></div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Business Overview</h2>
+                    <p>Current fleet performance at a glance</p>
+                </div>
             </div>
 
             <div class="stats-grid">
@@ -129,135 +136,296 @@
                 </div>
             </div>
 
-            <div class="content-grid">
-                <div class="panel">
-                    <div class="panel-heading">
-                        <div>
-                            <h3>Recent Transactions</h3>
-                            <p>Latest rental and return activities</p>
-                        </div>
-                        <button class="text-button" onclick="navigate('ledger')">View all</button>
-                    </div>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Transaction ID</th>
-                                    <th>Vehicle</th>
-                                    <th>Type</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody id="recent-transactions">
-                                <tr><td colspan="4" class="empty">No transactions yet</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="panel quick-actions">
-                    <div class="panel-heading">
-                        <div>
-                            <h3>Quick Actions</h3>
-                            <p>Common activities</p>
-                        </div>
-                    </div>
-                    <button onclick="navigate('vehicles')"><i data-lucide="plus"></i> Add Vehicle</button>
-                    <button onclick="navigate('customers')"><i data-lucide="user-plus"></i> Add Customer</button>
-                    <button onclick="navigate('rentals')"><i data-lucide="key-round"></i> Create Rental</button>
-                    <button onclick="navigate('returns')"><i data-lucide="undo-2"></i> Record Return</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- VEHICLES -->
-        <section class="page" id="vehicles">
-            <div class="page-intro">
+            <div class="section-heading">
                 <div>
-                    <h3>Vehicle Management</h3>
-                    <p>Manage your registered vehicles and their details.</p>
+                    <h2>Featured Vehicles</h2>
+                    <p>Explore our vehicle collection</p>
                 </div>
-                <button class="primary-btn" onclick="openForm('vehicle-form')">
-                    <i data-lucide="plus"></i> Add Vehicle
+                <button class="secondary-btn" onclick="navigate('vehicles')">
+                    View All
                 </button>
             </div>
 
-            <div class="panel form-panel hidden" id="vehicle-form">
-                <div class="panel-heading">
-                    <div><h3>Add New Vehicle</h3><p>Enter the vehicle information below.</p></div>
-                    <button class="close-btn" onclick="closeForm('vehicle-form')">✕</button>
-                </div>
-                <form id="add-vehicle-form" class="form-grid">
-                    <label>Vehicle ID<input name="id" placeholder="e.g. V001" required></label>
-                    <label>Registration Number<input name="registration" placeholder="e.g. KA25AB1234" required></label>
-                    <label>Vehicle Name<input name="name" placeholder="e.g. Honda Activa" required></label>
-                    <label>Vehicle Type
-                        <select name="type" required>
-                            <option value="">Select type</option>
-                            <option>Two Wheeler</option>
-                            <option>Four Wheeler</option>
-                            <option>Other</option>
-                        </select>
-                    </label>
-                    <label>Model Year<input name="year" type="number" min="1900" max="2100" placeholder="2025" required></label>
-                    <div class="form-actions">
-                        <button type="button" class="secondary-btn" onclick="closeForm('vehicle-form')">Cancel</button>
-                        <button class="primary-btn" type="submit">Save Vehicle</button>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=700"
+                         alt="Premium car">
+                    <div class="featured-info">
+                        <h3>Premium Cars</h3>
+                        <p>Comfortable journeys with style</p>
                     </div>
-                </form>
+                </div>
+
+                <div class="featured-card">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=700"
+                         alt="Motorcycle">
+                    <div class="featured-info">
+                        <h3>Motorcycles</h3>
+                        <p>Enjoy every ride</p>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700"
+                         alt="SUV">
+                    <div class="featured-info">
+                        <h3>SUV Collection</h3>
+                        <p>Space and convenience</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Recent Transactions</h2>
+                    <p>Latest rental and return activity</p>
+                </div>
+                <button class="secondary-btn" onclick="navigate('ledger')">
+                    View Ledger
+                </button>
             </div>
 
             <div class="panel">
-                <div class="panel-heading">
-                    <div><h3>Vehicle Directory</h3><p>All registered vehicles</p></div>
-                    <input class="search-input" id="vehicle-search" placeholder="Search vehicles...">
-                </div>
                 <div class="table-wrapper">
-                    <table>
+                    <table class="table">
                         <thead>
-                            <tr><th>Vehicle ID</th><th>Vehicle</th><th>Registration</th><th>Type</th><th>Year</th><th>Status</th></tr>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Vehicle</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                            </tr>
                         </thead>
-                        <tbody id="vehicle-table">
-                            <tr><td colspan="6" class="empty">No vehicles registered</td></tr>
-                        </tbody>
+                        <tbody id="recent-transactions"></tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <!-- CUSTOMERS -->
-        <section class="page" id="customers">
-            <div class="page-intro">
-                <div><h3>Customer Management</h3><p>Maintain your customer information.</p></div>
-                <button class="primary-btn" onclick="openForm('customer-form')"><i data-lucide="plus"></i> Add Customer</button>
+        <!-- VEHICLES -->
+        
+<section class="page" id="vehicles">
+
+    <div class="page-intro">
+        <div>
+            <span class="module-label">FLEET OPERATIONS</span>
+            <h2>Vehicle Management</h2>
+            <p>Monitor, register and manage your complete vehicle fleet.</p>
+        </div>
+
+        <button class="primary-btn" onclick="openForm('vehicle-form')">
+            <i data-lucide="plus-circle"></i>
+            Add New Vehicle
+        </button>
+    </div>
+
+    <!-- Fleet overview -->
+    <div class="section-heading">
+        <div>
+            <h2>Fleet Overview</h2>
+            <p>Real-time summary of your registered vehicles.</p>
+        </div>
+        <span class="live-indicator">Fleet Statistics</span>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card vehicle-stat total-vehicle-card">
+            <div class="stat-top">
+                <span>Total Vehicles</span>
+                <div class="vehicle-stat-icon">
+                    <i data-lucide="car-front"></i>
+                </div>
+            </div>
+            <h2 id="vehicle-total">0</h2>
+            <p>Registered in fleet</p>
+        </div>
+
+        <div class="stat-card vehicle-stat available-vehicle-card">
+            <div class="stat-top">
+                <span>Available Vehicles</span>
+                <div class="vehicle-stat-icon">
+                    <i data-lucide="check-circle"></i>
+                </div>
+            </div>
+            <h2 id="vehicle-available">0</h2>
+            <p>Ready for rental</p>
+        </div>
+
+        <div class="stat-card vehicle-stat rented-vehicle-card">
+            <div class="stat-top">
+                <span>Currently Rented</span>
+                <div class="vehicle-stat-icon">
+                    <i data-lucide="key-round"></i>
+                </div>
+            </div>
+            <h2 id="vehicle-rented">0</h2>
+            <p>Currently on rental</p>
+        </div>
+
+    </div>
+
+    <!-- Add vehicle form -->
+    <div id="vehicle-form" class="form-panel vehicle-registration-panel hidden">
+
+        <div class="registration-heading">
+            <div class="registration-icon">
+                <i data-lucide="car-front"></i>
+            </div>
+            <div>
+                <h3>Register New Vehicle</h3>
+                <p>Add a new vehicle to your rental fleet.</p>
+            </div>
+        </div>
+
+        <form id="add-vehicle-form">
+
+            <div class="form-grid">
+
+                <div class="vehicle-input-group">
+                    <label>Vehicle Name / Model</label>
+                    <input type="text" name="name"
+                           placeholder="Example: Hyundai Creta" required>
+                </div>
+
+                <div class="vehicle-input-group">
+                    <label>Registration Number</label>
+                    <input type="text" name="registration"
+                           placeholder="Example: KA25AB1234"
+                           style="text-transform:uppercase" required>
+                </div>
+
             </div>
 
-            <div class="panel form-panel hidden" id="customer-form">
-                <div class="panel-heading">
-                    <div><h3>Add New Customer</h3><p>Enter customer details.</p></div>
-                    <button class="close-btn" onclick="closeForm('customer-form')">✕</button>
+            <div class="form-actions">
+                <button type="submit" class="primary-btn">
+                    <i data-lucide="save"></i>
+                    Save Vehicle
+                </button>
+
+                <button type="button" class="secondary-btn"
+                        onclick="closeForm('vehicle-form')">
+                    Cancel
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Fleet table -->
+    <div class="section-heading vehicle-table-heading">
+        <div>
+            <h2>Registered Vehicle Fleet</h2>
+            <p>View and search all vehicles registered in your system.</p>
+        </div>
+    </div>
+
+    <div class="vehicle-table-toolbar">
+        <div class="vehicle-search-box">
+            <i data-lucide="search"></i>
+            <input type="search" id="vehicle-search"
+                   placeholder="Search by vehicle ID, model or registration...">
+        </div>
+
+        <div class="fleet-table-label">
+            <i data-lucide="database"></i>
+            Fleet Records
+        </div>
+    </div>
+
+    <div class="panel vehicle-table-panel">
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Vehicle ID</th>
+                        <th>Vehicle Name</th>
+                        <th>Registration Number</th>
+                        <th>Category</th>
+                        <th>Year</th>
+                        <th>Availability Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="vehicle-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+
+        <!-- CUSTOMERS -->
+        <section class="page" id="customers">
+
+            <div class="page-intro">
+                <div>
+                    <h2>Customer Management</h2>
+                    <p>Maintain and manage registered customer records.</p>
                 </div>
-                <form id="add-customer-form" class="form-grid">
-                    <label>Customer ID<input name="id" placeholder="e.g. C001" required></label>
-                    <label>Full Name<input name="name" placeholder="Customer name" required></label>
-                    <label>Contact Number<input name="phone" type="tel" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" required></label>
-                    <label>Email Address<input name="email" type="email" placeholder="customer@example.com"></label>
+                <button class="primary-btn" onclick="openForm('customer-form')">
+                    + Add Customer
+                </button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Customers</span>
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h2 id="customer-total">0</h2>
+                    <p>Registered customers</p>
+                </div>
+            </div>
+
+            <div id="customer-form" class="form-panel hidden">
+                <h3>Register New Customer</h3>
+                <p>Enter the customer's contact information.</p>
+
+                <form id="add-customer-form">
+                    <div class="form-grid">
+                        <input type="text" name="name"
+                               placeholder="Customer Full Name" required>
+
+                        <input type="tel" name="phone"
+                               placeholder="Phone Number" required>
+                    </div>
+
                     <div class="form-actions">
-                        <button type="button" class="secondary-btn" onclick="closeForm('customer-form')">Cancel</button>
-                        <button class="primary-btn" type="submit">Save Customer</button>
+                        <button type="submit" class="primary-btn">
+                            Save Customer
+                        </button>
+                        <button type="button" class="secondary-btn"
+                                onclick="closeForm('customer-form')">
+                            Cancel
+                        </button>
                     </div>
                 </form>
             </div>
 
-            <div class="panel">
-                <div class="panel-heading">
-                    <div><h3>Customer Directory</h3><p>Registered customer records</p></div>
-                    <input class="search-input" id="customer-search" placeholder="Search customers...">
+            <div class="section-heading">
+                <div>
+                    <h2>Customer Directory</h2>
+                    <p>View all registered customers.</p>
                 </div>
+            </div>
+
+            <input type="search" id="customer-search" class="search-input"
+                   placeholder="Search customer ID, name or phone...">
+
+            <div class="panel">
                 <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>Customer ID</th><th>Full Name</th><th>Contact</th><th>Email</th></tr></thead>
-                        <tbody id="customer-table"><tr><td colspan="4" class="empty">No customers registered</td></tr></tbody>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-table"></tbody>
                     </table>
                 </div>
             </div>
@@ -265,100 +433,445 @@
 
         <!-- RENTALS -->
         <section class="page" id="rentals">
+
             <div class="page-intro">
-                <div><h3>Create New Rental</h3><p>Record a vehicle rental transaction.</p></div>
+                <div>
+                    <h2>Rental Management</h2>
+                    <p>Create rental bookings and monitor vehicle rental activity.</p>
+                </div>
             </div>
 
-            <div class="panel">
-                <div class="panel-heading"><div><h3>Rental Information</h3><p>Complete all required fields to create a rental.</p></div></div>
-                <form id="rental-form" class="form-grid">
-                    <label>Transaction ID<input name="id" placeholder="e.g. T001" required></label>
-                    <label>Vehicle
-                        <select name="vehicle" id="rental-vehicle" required><option value="">Select vehicle</option></select>
-                    </label>
-                    <label>Customer
-                        <select name="customer" id="rental-customer" required><option value="">Select customer</option></select>
-                    </label>
-                    <label>Rental Date<input type="date" name="date" id="rental-date" required></label>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Rentals</span>
+                        <i data-lucide="clipboard-list"></i>
+                    </div>
+                    <h2 id="rental-total">0</h2>
+                    <p>All rental transactions</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Active Rentals</span>
+                        <i data-lucide="key-round"></i>
+                    </div>
+                    <h2 id="rental-active">0</h2>
+                    <p>Vehicles currently rented</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Available Vehicles</span>
+                        <i data-lucide="car-front"></i>
+                    </div>
+                    <h2 id="rental-available">0</h2>
+                    <p>Ready for booking</p>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <h3>Create New Rental</h3>
+                <p>Choose an available vehicle, customer and rental date.</p>
+
+                <form id="rental-form">
+                    <div class="form-grid">
+                        <div>
+                            <label for="rental-vehicle">Select Vehicle</label>
+                            <select id="rental-vehicle" name="vehicle" required>
+                                <option value="">Select available vehicle</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="rental-customer">Select Customer</label>
+                            <select id="rental-customer" name="customer" required>
+                                <option value="">Select customer</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="rental-date">Rental Date</label>
+                            <input type="date" id="rental-date" name="date" required>
+                        </div>
+                    </div>
+
                     <div class="form-actions">
-                        <button type="reset" class="secondary-btn">Clear</button>
-                        <button class="primary-btn" type="submit"><i data-lucide="check"></i> Confirm Rental</button>
+                        <button type="submit" class="primary-btn">
+                            Confirm Rental
+                        </button>
                     </div>
                 </form>
             </div>
-        </section>
 
-        <!-- RETURNS -->
-        <section class="page" id="returns">
-            <div class="page-intro"><div><h3>Vehicle Returns</h3><p>Record the return of currently rented vehicles.</p></div></div>
-            <div class="panel">
-                <div class="panel-heading"><div><h3>Return Information</h3><p>Select an active rental to record its return.</p></div></div>
-                <form id="return-form" class="form-grid">
-                    <label>Return Transaction ID<input name="id" placeholder="e.g. T002" required></label>
-                    <label>Active Rental
-                        <select name="rental" id="return-rental" required><option value="">Select active rental</option></select>
-                    </label>
-                    <label>Return Date<input type="date" name="date" id="return-date" required></label>
-                    <div class="form-actions">
-                        <button type="reset" class="secondary-btn">Clear</button>
-                        <button class="primary-btn" type="submit"><i data-lucide="check"></i> Confirm Return</button>
-                    </div>
-                </form>
+            <div class="section-heading">
+                <div>
+                    <h2>Rental Records</h2>
+                    <p>Review rental bookings and their current status.</p>
+                </div>
             </div>
-        </section>
 
-        <!-- AVAILABILITY -->
-        <section class="page" id="availability">
-            <div class="page-intro"><div><h3>Vehicle Availability</h3><p>Check which vehicles are available for rental.</p></div></div>
             <div class="panel">
-                <div class="panel-heading"><div><h3>Availability Overview</h3><p>Vehicle status based on rental and return records.</p></div></div>
                 <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>Vehicle ID</th><th>Vehicle</th><th>Registration</th><th>Type</th><th>Availability</th></tr></thead>
-                        <tbody id="availability-table"><tr><td colspan="5" class="empty">No vehicles available</td></tr></tbody>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Rental ID</th>
+                                <th>Vehicle</th>
+                                <th>Customer</th>
+                                <th>Rental Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rental-history-table">
+                            <tr>
+                                <td colspan="5" class="empty">
+                                    Rental records will appear here.
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <!-- LEDGER -->
-        <section class="page" id="ledger">
+        <!-- RETURNS -->
+        <section class="page" id="returns">
+
             <div class="page-intro">
-                <div><h3>Transaction Ledger</h3><p>Chronological record of all rental and return transactions.</p></div>
-                <button class="secondary-btn" onclick="exportCSV()"><i data-lucide="download"></i> Export CSV</button>
+                <div>
+                    <h2>Vehicle Returns</h2>
+                    <p>Process vehicle returns and update fleet availability.</p>
+                </div>
             </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Returns</span>
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <h2 id="return-total">0</h2>
+                    <p>Completed return transactions</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Pending Returns</span>
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <h2 id="return-pending">0</h2>
+                    <p>Active rentals awaiting return</p>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <h3>Process Vehicle Return</h3>
+                <p>Select an active rental to record its return.</p>
+
+                <form id="return-form">
+                    <div class="form-grid">
+                        <div>
+                            <label for="return-rental">Select Active Rental</label>
+                            <select id="return-rental" name="rental" required>
+                                <option value="">Select active rental</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="return-date">Return Date</label>
+                            <input type="date" id="return-date" name="date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="primary-btn">
+                            Confirm Vehicle Return
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Return History</h2>
+                    <p>Previously completed vehicle returns.</p>
+                </div>
+            </div>
+
             <div class="panel">
-                <div class="panel-heading"><div><h3>Transaction History</h3><p>All recorded transactions</p></div><input class="search-input" id="ledger-search" placeholder="Search transactions..."></div>
                 <div class="table-wrapper">
-                    <table>
-                        <thead><tr><th>Transaction ID</th><th>Type</th><th>Vehicle</th><th>Customer</th><th>Date</th></tr></thead>
-                        <tbody id="ledger-table"><tr><td colspan="5" class="empty">No transactions recorded</td></tr></tbody>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Return ID</th>
+                                <th>Vehicle</th>
+                                <th>Customer</th>
+                                <th>Return Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="return-history-table">
+                            <tr>
+                                <td colspan="5" class="empty">
+                                    Return records will appear here.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVAILABILITY -->
+        <section class="page" id="availability">
+
+            <div class="page-intro">
+                <div>
+                    <h2>Vehicle Availability</h2>
+                    <p>Monitor available and rented vehicles across your fleet.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Fleet</span>
+                        <i data-lucide="car-front"></i>
+                    </div>
+                    <h2 id="availability-total">0</h2>
+                    <p>All registered vehicles</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Available</span>
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <h2 id="availability-available">0</h2>
+                    <p>Ready for new rentals</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Rented</span>
+                        <i data-lucide="key-round"></i>
+                    </div>
+                    <h2 id="availability-rented">0</h2>
+                    <p>Currently on rental</p>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Fleet Availability Overview</h2>
+                    <p>Current vehicle status based on rental and return records.</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Vehicle ID</th>
+                                <th>Vehicle Name</th>
+                                <th>Registration Number</th>
+                                <th>Category</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+                        <tbody id="availability-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSACTION LEDGER -->
+        <section class="page" id="ledger">
+
+            <div class="page-intro">
+                <div>
+                    <h2>Transaction Ledger</h2>
+                    <p>Complete history of vehicle rentals and returns.</p>
+                </div>
+                <button class="secondary-btn" onclick="exportCSV()">
+                    Export CSV
+                </button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span>Total Transactions</span>
+                    <h2 id="ledger-total">0</h2>
+                    <p>All recorded activities</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>Rental Transactions</span>
+                    <h2 id="ledger-rentals">0</h2>
+                    <p>Vehicles rented</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>Return Transactions</span>
+                    <h2 id="ledger-returns">0</h2>
+                    <p>Vehicles returned</p>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Transaction Records</h2>
+                    <p>Search and review transaction history.</p>
+                </div>
+            </div>
+
+            <input type="search" id="ledger-search" class="search-input"
+                   placeholder="Search transaction ID, vehicle or customer...">
+
+            <div class="panel">
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Transaction Type</th>
+                                <th>Vehicle</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledger-table"></tbody>
                     </table>
                 </div>
             </div>
         </section>
 
         <!-- REPORTS -->
-        <section class="page" id="reports">
-            <div class="page-intro"><div><h3>Reports & Analytics</h3><p>Overview of your vehicle rental operations.</p></div></div>
-            <div class="stats-grid">
-                <div class="stat-card"><div class="stat-top"><span>Total Rentals</span><i data-lucide="key-round"></i></div><h2 id="report-rentals">0</h2><p>Rental transactions</p></div>
-                <div class="stat-card"><div class="stat-top"><span>Total Returns</span><i data-lucide="undo-2"></i></div><h2 id="report-returns">0</h2><p>Return transactions</p></div>
-                <div class="stat-card"><div class="stat-top"><span>Available</span><i data-lucide="check-circle"></i></div><h2 id="report-available">0</h2><p>Vehicles available</p></div>
-                <div class="stat-card"><div class="stat-top"><span>Currently Rented</span><i data-lucide="clock"></i></div><h2 id="report-rented">0</h2><p>Active rentals</p></div>
-            </div>
-            <div class="panel">
-                <div class="panel-heading"><div><h3>Download Reports</h3><p>Export your transaction records.</p></div></div>
-                <button class="primary-btn" onclick="exportCSV()"><i data-lucide="download"></i> Download Transaction Report</button>
-            </div>
-        </section>
+        
+<section class="page" id="reports">
 
-        <footer class="footer">© 2026 VeloRent. Vehicle Rental & Transaction Ledger System.</footer>
-    </main>
+    <div class="page-intro">
+        <div>
+            <h2>Reports & Analytics</h2>
+            <p>Understand your fleet's rental activity.</p>
+        </div>
+
+        <button class="primary-btn" onclick="exportCSV()">
+            <i data-lucide="download"></i>
+            Download File
+        </button>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Total Rentals</span>
+                <i data-lucide="clipboard-list"></i>
+            </div>
+            <h2 id="report-rentals">0</h2>
+            <p>Total rental transactions</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Total Returns</span>
+                <i data-lucide="check-circle"></i>
+            </div>
+            <h2 id="report-returns">0</h2>
+            <p>Total return transactions</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Available Vehicles</span>
+                <i data-lucide="car-front"></i>
+            </div>
+            <h2 id="report-available">0</h2>
+            <p>Currently available</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-top">
+                <span>Rented Vehicles</span>
+                <i data-lucide="key-round"></i>
+            </div>
+            <h2 id="report-rented">0</h2>
+            <p>Currently rented</p>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <div>
+            <h2>Business Summary</h2>
+            <p>Overview of fleet and transaction activity.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Report Metric</th>
+                        <th>Current Value</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Total Registered Vehicles</td>
+                        <td id="summary-vehicles">0</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Registered Customers</td>
+                        <td id="summary-customers">0</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Transactions</td>
+                        <td id="summary-transactions">0</td>
+                    </tr>
+
+                    <tr>
+                        <td>Active Rentals</td>
+                        <td id="summary-active">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <p>© 2026 VeloRent. Vehicle Rental System.</p>
+</footer>
+
+</main>
 </div>
 
 <div id="toast" class="toast"></div>
 
-<script src="js/script.js"></script>
+<script src="/static/js/script.js"></script>
+
+<script>
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    const dateElement = document.getElementById("today-date");
+
+    if (dateElement) {
+        dateElement.textContent = new Date().toLocaleDateString("en-IN", {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        });
+    }
+</script>
+
 </body>
 </html>

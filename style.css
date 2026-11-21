@@ -1,19 +1,20 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
+
+/* =========================================
+   1. GLOBAL SETTINGS
+========================================= */
 
 :root {
-    --primary: #087f68;
-    --primary-dark: #066653;
-    --primary-light: #e7f5f1;
-    --navy: #172b3a;
-    --background: #f5f7f9;
+    --primary: #2864dc;
+    --primary-dark: #1d4fb5;
+    --navy: #14213a;
+    --background: #f5f7fb;
     --surface: #ffffff;
-    --text: #243442;
-    --muted: #82909b;
-    --border: #e8edf0;
-    --green: #15966e;
-    --red: #d9534f;
-    --shadow: 0 5px 20px rgba(26, 47, 61, 0.045);
+    --text: #26364d;
+    --muted: #8491a4;
+    --border: #e8edf4;
+    --shadow: 0 5px 20px rgba(25, 45, 75, .05);
 }
 
 * {
@@ -37,21 +38,23 @@ button {
     cursor: pointer;
 }
 
+/* =========================================
+   2. MAIN LAYOUT
+========================================= */
+
 .app {
     min-height: 100vh;
 }
 
-/* SIDEBAR */
-
 .sidebar {
-    width: 255px;
+    width: 250px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     background: var(--navy);
-    color: #fff;
-    padding: 27px 18px;
+    color: white;
+    padding: 26px 17px;
     display: flex;
     flex-direction: column;
     z-index: 10;
@@ -67,52 +70,51 @@ button {
 .brand-icon {
     width: 42px;
     height: 42px;
-    border-radius: 13px;
-    background: var(--primary);
     display: grid;
     place-items: center;
-    font-family: 'Manrope', sans-serif;
-    font-size: 23px;
+    background: var(--primary);
+    border-radius: 10px;
+    font-size: 22px;
     font-weight: 800;
 }
 
 .brand h2 {
     font-family: 'Manrope', sans-serif;
     font-size: 20px;
-    letter-spacing: -0.7px;
 }
 
 .brand span {
-    font-size: 8px;
-    color: #a9b8c2;
-    letter-spacing: 1.5px;
-    font-weight: 700;
+    display: block;
+    color: #aebbd0;
+    font-size: 9px;
+    margin-top: 3px;
+    letter-spacing: 1px;
 }
 
 .menu-label {
+    color: #8494ae;
     font-size: 10px;
-    color: #8295a2;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 0 12px 13px;
+    letter-spacing: 1.4px;
+    padding: 0 12px 14px;
 }
 
 .sidebar nav {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 13px;
-    padding: 12px 13px;
-    color: #bdcbd3;
-    text-decoration: none;
+    gap: 12px;
+    padding: 12px;
     border-radius: 8px;
-    font-weight: 500;
-    transition: 0.2s;
+    text-decoration: none;
+    color: #bdc9db;
+    font-size: 13px;
+    transition: .2s;
 }
 
 .nav-link svg {
@@ -121,20 +123,19 @@ button {
 }
 
 .nav-link:hover {
-    background: rgba(255,255,255,0.07);
+    background: #ffffff12;
     color: white;
 }
 
 .nav-link.active {
     background: var(--primary);
-    color: #fff;
-    box-shadow: 0 5px 14px rgba(0,0,0,0.12);
+    color: white;
 }
 
 .sidebar-bottom {
     margin-top: auto;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
+    border-top: 1px solid #ffffff20;
+    padding-top: 18px;
 }
 
 .admin-profile {
@@ -145,13 +146,13 @@ button {
 }
 
 .avatar {
-    width: 37px;
-    height: 37px;
-    background: #d9eee7;
-    color: var(--primary-dark);
+    width: 36px;
+    height: 36px;
     display: grid;
     place-items: center;
     border-radius: 50%;
+    background: #e4edff;
+    color: var(--primary);
     font-weight: 800;
 }
 
@@ -165,17 +166,19 @@ button {
 }
 
 .admin-profile span {
-    color: #a9b8c2;
-    font-size: 11px;
+    color: #aebbd0;
+    font-size: 10px;
     margin-top: 3px;
 }
 
-/* MAIN AREA */
+/* =========================================
+   3. MAIN CONTENT AND TOPBAR
+========================================= */
 
 .main-content {
-    margin-left: 255px;
-    padding: 0 34px;
+    margin-left: 250px;
     min-height: 100vh;
+    padding: 0 34px;
     display: flex;
     flex-direction: column;
 }
@@ -190,54 +193,30 @@ button {
 }
 
 .breadcrumb {
-    font-size: 11px;
     color: var(--muted);
+    font-size: 11px;
     margin-bottom: 7px;
 }
 
-.breadcrumb strong {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.topbar h2 {
+.topbar h1 {
     font-family: 'Manrope', sans-serif;
-    font-size: 23px;
-    font-weight: 800;
-    letter-spacing: -0.8px;
+    font-size: 24px;
+    color: var(--navy);
+    letter-spacing: -.6px;
 }
 
 .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-.today-date {
     color: var(--muted);
     font-size: 12px;
 }
 
-.notification {
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    background: white;
-}
-
-.notification svg {
-    width: 17px;
-    color: var(--text);
-}
-
-/* PAGE VISIBILITY */
+/* =========================================
+   4. PAGE NAVIGATION
+========================================= */
 
 .page {
     display: none;
-    animation: fadeIn 0.25s ease;
+    animation: fadeIn .2s ease;
 }
 
 .page.active {
@@ -247,7 +226,7 @@ button {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(5px);
+        transform: translateY(4px);
     }
     to {
         opacity: 1;
@@ -255,68 +234,112 @@ button {
     }
 }
 
-/* WELCOME BANNER */
+/* =========================================
+   5. DASHBOARD BANNER
+========================================= */
 
-.welcome-banner {
-    background: linear-gradient(115deg, #087f68, #075d59);
+.hero-banner {
+    min-height: 190px;
+    background: linear-gradient(110deg, #14294d, #2459a9);
     border-radius: 13px;
-    padding: 27px 32px;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 155px;
-    margin-bottom: 25px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 30px;
+    color: white;
 }
 
-.eyebrow {
-    font-size: 9px;
+.hero-content {
+    padding: 30px 35px;
+    max-width: 55%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-tag {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    color: #c5d9ff;
     font-weight: 700;
-    letter-spacing: 2px;
-    color: #c5eee1;
 }
 
-.welcome-banner h2 {
+.hero-content h2 {
     font-family: 'Manrope', sans-serif;
-    font-size: 23px;
-    margin: 10px 0 7px;
+    font-size: 27px;
+    line-height: 1.3;
+    margin: 12px 0 8px;
 }
 
-.welcome-banner p {
-    color: #d6eee8;
+.hero-content p {
+    color: #d4e2fa;
     font-size: 12px;
+    line-height: 1.6;
 }
 
-.banner-icon {
-    width: 125px;
-    height: 125px;
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    margin-right: 35px;
-    background: rgba(255,255,255,0.07);
+.hero-button {
+    border: 0;
+    background: white;
+    color: #1e50a1;
+    padding: 11px 17px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 17px;
 }
 
-.banner-icon svg {
-    width: 65px;
-    height: 65px;
-    color: #d7f5eb;
+.hero-button:hover {
+    background: #edf3ff;
 }
 
-/* STATISTICS */
+.hero-image {
+    width: 43%;
+    height: 190px;
+    background-image:
+        linear-gradient(90deg, #1b3d70 0%, transparent 55%),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1000");
+    background-size: cover;
+    background-position: center;
+}
+
+/* =========================================
+   6. SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 27px 0 17px;
+    gap: 12px;
+}
+
+.section-heading h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    color: var(--navy);
+}
+
+.section-heading p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* =========================================
+   7. STATISTICS CARDS
+========================================= */
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 17px;
-    margin-bottom: 23px;
+    gap: 16px;
+    margin-bottom: 25px;
 }
 
 .stat-card {
-    background: var(--surface);
+    background: white;
     border: 1px solid var(--border);
     border-radius: 11px;
     padding: 20px;
@@ -325,72 +348,84 @@ button {
 
 .stat-top {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    color: #71818d;
+    align-items: center;
+    gap: 8px;
+    color: #75839a;
     font-size: 12px;
     font-weight: 600;
 }
 
 .stat-top svg {
     width: 19px;
+    height: 19px;
     color: var(--primary);
-    background: var(--primary-light);
-    box-sizing: content-box;
-    padding: 8px;
-    border-radius: 9px;
 }
 
 .stat-card h2 {
     font-family: 'Manrope', sans-serif;
-    font-size: 29px;
-    margin: 13px 0 3px;
+    font-size: 30px;
     color: var(--navy);
+    margin: 14px 0 4px;
 }
 
 .stat-card p {
-    font-size: 11px;
     color: var(--muted);
+    font-size: 11px;
 }
 
-/* PANELS */
+/* =========================================
+   8. DASHBOARD VEHICLE PHOTOS
+========================================= */
 
-.panel {
-    background: var(--surface);
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.featured-card {
+    background: white;
     border: 1px solid var(--border);
     border-radius: 11px;
-    padding: 21px;
-    margin-bottom: 22px;
+    overflow: hidden;
     box-shadow: var(--shadow);
 }
 
-.content-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr);
-    gap: 20px;
+.featured-card img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    display: block;
 }
 
-.panel-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+.featured-info {
+    padding: 15px;
 }
 
-.panel-heading h3 {
+.featured-info h3 {
     font-size: 14px;
-    font-weight: 700;
     color: var(--navy);
 }
 
-.panel-heading p {
-    color: var(--muted);
+.featured-info p {
     font-size: 11px;
+    color: var(--muted);
     margin-top: 5px;
 }
 
-/* TABLES */
+/* =========================================
+   9. TABLES AND PANELS
+========================================= */
+
+.panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 20px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow);
+}
 
 .table-wrapper {
     width: 100%;
@@ -404,24 +439,24 @@ table {
 }
 
 thead {
-    background: #f7f9fa;
+    background: #f6f8fc;
 }
 
 th {
     text-align: left;
-    color: #7a8994;
+    padding: 14px 12px;
+    color: #7d8ba0;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 13px 12px;
+    letter-spacing: .5px;
 }
 
 td {
     padding: 15px 12px;
-    border-bottom: 1px solid #edf0f2;
+    border-bottom: 1px solid #edf0f5;
     font-size: 12px;
-    color: #52616c;
+    color: #53627a;
 }
 
 tbody tr:last-child td {
@@ -429,16 +464,42 @@ tbody tr:last-child td {
 }
 
 tbody tr:hover {
-    background: #fafcfc;
+    background: #f9fbff;
 }
 
 .empty {
     text-align: center;
-    color: #9aa6ae;
-    padding: 28px;
+    color: var(--muted);
+    padding: 25px;
 }
 
-/* BUTTONS */
+/* =========================================
+   10. PAGE INTRODUCTIONS
+========================================= */
+
+.page-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.page-intro h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    color: var(--navy);
+}
+
+.page-intro p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* =========================================
+   11. BUTTONS
+========================================= */
 
 .primary-btn,
 .secondary-btn {
@@ -450,111 +511,54 @@ tbody tr:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    transition: 0.2s;
+    gap: 7px;
+    transition: .2s;
 }
 
 .primary-btn {
-    color: white;
     background: var(--primary);
+    color: white;
 }
 
 .primary-btn:hover {
     background: var(--primary-dark);
-    transform: translateY(-1px);
 }
 
 .secondary-btn {
-    background: #f0f3f5;
-    color: #53636f;
+    background: #edf2fa;
+    color: #455a7a;
 }
 
 .secondary-btn:hover {
-    background: #e6ebee;
-}
-
-.primary-btn svg,
-.secondary-btn svg {
-    width: 15px;
-    height: 15px;
-}
-
-.text-button {
-    border: none;
-    background: transparent;
-    color: var(--primary);
-    font-size: 11px;
-    font-weight: 700;
+    background: #e1e9f7;
 }
 
 .close-btn {
     border: none;
-    background: #f1f4f5;
+    background: #edf1f7;
+    color: #53627a;
     border-radius: 6px;
-    width: 28px;
-    height: 28px;
-    color: #687984;
+    padding: 7px 11px;
 }
 
-/* QUICK ACTIONS */
-
-.quick-actions {
-    display: flex;
-    flex-direction: column;
-}
-
-.quick-actions button {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    background: #f8faf9;
-    border: 1px solid #edf1ef;
-    border-radius: 8px;
-    padding: 13px;
-    margin-bottom: 9px;
-    color: #40535f;
-    font-size: 12px;
-    font-weight: 600;
-    text-align: left;
-}
-
-.quick-actions button:hover {
-    background: var(--primary-light);
-    border-color: #bfe4d8;
-    color: var(--primary-dark);
-}
-
-.quick-actions button svg {
-    width: 17px;
-    color: var(--primary);
-}
-
-/* INNER PAGES */
-
-.page-intro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 15px;
-}
-
-.page-intro h3 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 18px;
-    color: var(--navy);
-}
-
-.page-intro p {
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-/* FORMS */
+/* =========================================
+   12. FORMS
+========================================= */
 
 .form-panel {
-    border-top: 3px solid var(--primary);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 23px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow);
+}
+
+.form-panel h3 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .hidden {
@@ -564,61 +568,47 @@ tbody tr:hover {
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-}
-
-.form-grid label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #566671;
+    gap: 15px;
 }
 
 .form-grid input,
 .form-grid select,
 .search-input {
     width: 100%;
-    padding: 11px 12px;
-    border: 1px solid #e1e7ea;
+    padding: 12px 13px;
+    border: 1px solid #e0e6ef;
     border-radius: 7px;
-    outline: none;
-    background: white;
+    background: #fff;
     color: var(--text);
+    outline: none;
     font-size: 12px;
-    transition: 0.2s;
 }
 
 .form-grid input:focus,
 .form-grid select:focus,
 .search-input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(8,127,104,0.08);
-}
-
-.form-grid input::placeholder,
-.search-input::placeholder {
-    color: #a7b1b8;
+    box-shadow: 0 0 0 3px #2864dc15;
 }
 
 .form-actions {
-    grid-column: 1 / -1;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    margin-top: 5px;
+    margin-top: 18px;
 }
 
 .search-input {
-    width: 220px;
+    width: 260px;
+    margin-bottom: 18px;
 }
 
-/* STATUS */
+/* =========================================
+   13. STATUS LABELS
+========================================= */
 
 .status {
     display: inline-flex;
-    align-items: center;
     padding: 5px 9px;
     border-radius: 20px;
     font-size: 10px;
@@ -626,36 +616,38 @@ tbody tr:hover {
 }
 
 .status.available {
-    color: #087f5b;
-    background: #e6f6ef;
+    color: #087e54;
+    background: #e6f6ee;
 }
 
 .status.rented {
-    color: #a86c16;
+    color: #a56a12;
     background: #fff3df;
 }
 
 .status.returned {
-    color: #2773b8;
-    background: #e8f2fb;
+    color: #2866b3;
+    background: #eaf2ff;
 }
 
-/* TOAST */
+/* =========================================
+   14. TOAST NOTIFICATION
+========================================= */
 
 .toast {
     position: fixed;
-    right: 25px;
-    bottom: 25px;
-    background: #183c35;
+    right: 24px;
+    bottom: 24px;
+    background: #14294d;
     color: white;
-    padding: 13px 20px;
+    padding: 13px 19px;
     border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow);
     font-size: 12px;
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(12px);
     pointer-events: none;
-    transition: 0.25s;
+    transition: .2s;
     z-index: 100;
 }
 
@@ -664,32 +656,526 @@ tbody tr:hover {
     transform: translateY(0);
 }
 
-/* FOOTER */
+/* =========================================
+   15. FOOTER
+========================================= */
 
 .footer {
     margin-top: auto;
     text-align: center;
-    color: #98a4ac;
+    color: #98a4b5;
     font-size: 10px;
     padding: 25px 0 18px;
 }
 
-/* RESPONSIVE DESIGN */
+/* =========================================
+   16. PREMIUM MODULE COMMON STYLING
+========================================= */
+
+#vehicles,
+#rentals,
+#returns,
+#availability {
+    padding-bottom: 20px;
+}
+
+#vehicles .page-intro,
+#rentals .page-intro,
+#returns .page-intro,
+#availability .page-intro {
+    padding: 23px 25px;
+    background: linear-gradient(115deg, #ffffff, #f2f6ff);
+    border: 1px solid #e5ebf5;
+    border-radius: 12px;
+    margin-bottom: 23px;
+}
+
+#vehicles .page-intro h2,
+#rentals .page-intro h2,
+#returns .page-intro h2,
+#availability .page-intro h2 {
+    font-size: 22px;
+    letter-spacing: -.5px;
+}
+
+#vehicles .page-intro p,
+#rentals .page-intro p,
+#returns .page-intro p,
+#availability .page-intro p {
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+#vehicles .stats-grid,
+#rentals .stats-grid,
+#returns .stats-grid,
+#availability .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 27px;
+}
+
+#vehicles .stat-card,
+#rentals .stat-card,
+#returns .stat-card,
+#availability .stat-card {
+    position: relative;
+    overflow: hidden;
+    padding: 23px;
+    border-radius: 12px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#vehicles .stat-card:hover,
+#rentals .stat-card:hover,
+#returns .stat-card:hover,
+#availability .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(25, 45, 75, .09);
+}
+
+#vehicles .stat-card::after,
+#rentals .stat-card::after,
+#returns .stat-card::after,
+#availability .stat-card::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    right: -20px;
+    bottom: -24px;
+    border-radius: 50%;
+    background: #2864dc0b;
+}
+
+#vehicles .stat-card h2,
+#rentals .stat-card h2,
+#returns .stat-card h2,
+#availability .stat-card h2 {
+    font-size: 34px;
+    margin-top: 18px;
+}
+
+#vehicles .section-heading,
+#rentals .section-heading,
+#returns .section-heading,
+#availability .section-heading {
+    margin-top: 30px;
+}
+
+#vehicles .section-heading h2,
+#rentals .section-heading h2,
+#returns .section-heading h2,
+#availability .section-heading h2 {
+    font-size: 18px;
+}
+
+/* =========================================
+   17. PREMIUM VEHICLES MODULE
+========================================= */
+
+#vehicles .module-label {
+    display: inline-block;
+    color: #2864dc;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+#vehicles .page-intro {
+    background: linear-gradient(120deg, #ffffff, #f0f5ff);
+    border: 1px solid #e2eaf8;
+    border-radius: 14px;
+    padding: 27px;
+}
+
+#vehicles .page-intro h2 {
+    font-size: 25px;
+    color: #172b4d;
+    margin-bottom: 8px;
+}
+
+#vehicles .page-intro p {
+    color: #748198;
+}
+
+#vehicles .page-intro .primary-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px #2864dc25;
+}
+
+#vehicles .live-indicator {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2864dc;
+    background: #eaf1ff;
+    padding: 9px 13px;
+    border-radius: 20px;
+}
+
+#vehicles .vehicle-stat {
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+    padding: 23px;
+    border: 1px solid #e9eef6;
+    border-radius: 14px;
+    transition: .25s ease;
+}
+
+#vehicles .vehicle-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(31, 55, 90, .09);
+}
+
+#vehicles .vehicle-stat h2 {
+    font-size: 36px;
+    color: #172b4d;
+    margin-top: 17px;
+}
+
+#vehicles .vehicle-stat p {
+    color: #8591a5;
+    font-size: 12px;
+}
+
+#vehicles .vehicle-stat-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: #edf3ff;
+    color: #2864dc;
+}
+
+#vehicles .available-vehicle-card .vehicle-stat-icon {
+    background: #e8f8ef;
+    color: #159653;
+}
+
+#vehicles .rented-vehicle-card .vehicle-stat-icon {
+    background: #fff3e6;
+    color: #e58b27;
+}
+
+#vehicles .vehicle-registration-panel {
+    border-radius: 14px;
+    padding: 27px;
+    border: 1px solid #e5ebf5;
+    border-top: 3px solid #2864dc;
+    box-shadow: 0 8px 28px rgba(25, 45, 75, .06);
+}
+
+#vehicles .registration-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+#vehicles .registration-icon {
+    width: 47px;
+    height: 47px;
+    display: grid;
+    place-items: center;
+    color: #2864dc;
+    background: #edf3ff;
+    border-radius: 12px;
+}
+
+#vehicles .registration-heading h3 {
+    font-size: 18px;
+    color: #172b4d;
+    margin-bottom: 0;
+}
+
+#vehicles .registration-heading p {
+    font-size: 12px;
+    color: #8994a7;
+    margin-top: 5px;
+}
+
+#vehicles .vehicle-input-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #52627b;
+}
+
+#vehicles .vehicle-input-group input {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 9px;
+    background: #fafcff;
+    padding: 12px 14px;
+    border: 1px solid #dfe6f0;
+}
+
+#vehicles .vehicle-input-group input:focus {
+    border-color: #2864dc;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px #2864dc15;
+}
+
+#vehicles .form-actions {
+    margin-top: 22px;
+}
+
+#vehicles .vehicle-table-heading {
+    margin-top: 35px;
+}
+
+#vehicles .vehicle-table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 18px 0;
+}
+
+#vehicles .vehicle-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: min(440px, 100%);
+    padding: 0 14px;
+    background: #fff;
+    border: 1px solid #e0e7f1;
+    border-radius: 9px;
+    color: #8390a5;
+}
+
+#vehicles .vehicle-search-box input {
+    width: 100%;
+    min-height: 44px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 12px;
+}
+
+#vehicles .fleet-table-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #65748b;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#vehicles .vehicle-table-panel {
+    border: 1px solid #e8edf5;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(25, 45, 75, .045);
+}
+
+#vehicles table {
+    min-width: 700px;
+}
+
+#vehicles thead th {
+    background: #f3f6fc;
+    color: #56647b;
+    padding: 17px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+#vehicles tbody td {
+    padding: 17px 14px;
+    font-size: 12px;
+    color: #526078;
+}
+
+#vehicles tbody tr:hover {
+    background: #f5f8ff;
+}
+
+#vehicles .status {
+    padding: 6px 11px;
+    font-size: 10px;
+    letter-spacing: .2px;
+}
+
+/* =========================================
+   18. PREMIUM RENTAL AND RETURN FORMS
+========================================= */
+
+#rentals .form-panel,
+#returns .form-panel {
+    padding: 27px;
+    border-radius: 13px;
+    border-top: 3px solid var(--primary);
+    box-shadow: 0 8px 25px rgba(25, 45, 75, .055);
+}
+
+#rentals .form-panel h3,
+#returns .form-panel h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+#rentals .form-panel > p,
+#returns .form-panel > p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+
+#rentals .form-grid,
+#returns .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px;
+}
+
+#rentals .form-grid label,
+#returns .form-grid label {
+    display: block;
+    margin-bottom: 9px;
+    color: #53627a;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#rentals .form-grid input,
+#rentals .form-grid select,
+#returns .form-grid input,
+#returns .form-grid select {
+    min-height: 45px;
+    border-radius: 8px;
+    background: #fbfcff;
+    transition: .2s;
+}
+
+#rentals .form-grid input:focus,
+#rentals .form-grid select:focus,
+#returns .form-grid input:focus,
+#returns .form-grid select:focus {
+    background: white;
+}
+
+#rentals .form-actions,
+#returns .form-actions {
+    justify-content: flex-start;
+    border-top: 1px solid #edf0f5;
+    padding-top: 18px;
+}
+
+#rentals .primary-btn,
+#returns .primary-btn {
+    min-height: 42px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px #2864dc25;
+}
+
+#rentals .primary-btn:hover,
+#returns .primary-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 16px #2864dc35;
+}
+
+/* =========================================
+   19. PREMIUM TABLES AND AVAILABILITY
+========================================= */
+
+#vehicles .panel,
+#rentals .panel,
+#returns .panel,
+#availability .panel {
+    padding: 8px 17px;
+    border-radius: 12px;
+    box-shadow: 0 5px 22px rgba(25, 45, 75, .045);
+}
+
+#rentals table,
+#returns table,
+#availability table {
+    min-width: 650px;
+}
+
+#rentals th,
+#returns th,
+#availability th {
+    padding: 17px 14px;
+    background: #f5f8fd;
+}
+
+#rentals td,
+#returns td,
+#availability td {
+    padding: 17px 14px;
+    font-size: 12px;
+}
+
+#rentals tbody tr,
+#returns tbody tr,
+#availability tbody tr {
+    transition: background .18s ease;
+}
+
+#rentals tbody tr:hover,
+#returns tbody tr:hover,
+#availability tbody tr:hover {
+    background: #f4f8ff;
+}
+
+#availability .status {
+    padding: 6px 11px;
+    font-size: 10px;
+    letter-spacing: .2px;
+}
+
+/* =========================================
+   20. REPORTS PAGE
+========================================= */
+
+#reports .page-intro {
+    align-items: center;
+}
+
+#reports .page-intro .primary-btn {
+    min-height: 42px;
+    padding: 12px 18px;
+}
+
+#reports .panel {
+    border-radius: 12px;
+}
+
+/* =========================================
+   21. RESPONSIVE DESIGN
+========================================= */
 
 @media (max-width: 1100px) {
     .stats-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .content-grid {
-        grid-template-columns: 1fr;
+    #vehicles .stats-grid,
+    #rentals .stats-grid,
+    #returns .stats-grid,
+    #availability .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .main-content {
+        padding: 0 23px;
     }
 }
 
 @media (max-width: 760px) {
     .sidebar {
-        width: 70px;
-        padding: 22px 9px;
+        width: 72px;
+        padding: 20px 8px;
     }
 
     .brand {
@@ -699,8 +1185,8 @@ tbody tr:hover {
 
     .brand > div:last-child,
     .menu-label,
-    .nav-link:not(.active) {
-        font-size: 0;
+    .admin-profile > div:last-child {
+        display: none;
     }
 
     .nav-link {
@@ -716,41 +1202,44 @@ tbody tr:hover {
 
     .admin-profile {
         justify-content: center;
-        padding: 0;
-    }
-
-    .admin-profile > div:last-child {
-        display: none;
     }
 
     .main-content {
-        margin-left: 70px;
-        padding: 0 16px;
+        margin-left: 72px;
+        padding: 0 14px;
     }
 
-    .topbar h2 {
-        font-size: 18px;
+    .topbar {
+        min-height: 85px;
     }
 
-    .today-date {
+    .topbar h1 {
+        font-size: 19px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 23px;
+    }
+
+    .hero-content h2 {
+        font-size: 21px;
+    }
+
+    .hero-image {
         display: none;
     }
 
-    .welcome-banner {
-        padding: 22px;
+    .featured-grid {
+        grid-template-columns: 1fr;
     }
 
-    .banner-icon {
-        display: none;
+    .featured-card img {
+        height: 180px;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
-    }
-
-    .form-actions {
-        grid-column: auto;
-        flex-wrap: wrap;
     }
 
     .page-intro {
@@ -758,12 +1247,51 @@ tbody tr:hover {
         flex-direction: column;
     }
 
-    .search-input {
+    #vehicles .page-intro {
+        padding: 18px;
+    }
+
+    #vehicles .vehicle-table-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #vehicles .vehicle-search-box {
         width: 100%;
     }
 
-    .panel-heading {
+    #vehicles .vehicle-registration-panel,
+    #rentals .form-panel,
+    #returns .form-panel {
+        padding: 18px;
+    }
+
+    #rentals .form-grid,
+    #returns .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #vehicles .stats-grid,
+    #rentals .stats-grid,
+    #returns .stats-grid,
+    #availability .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #vehicles .page-intro,
+    #rentals .page-intro,
+    #returns .page-intro,
+    #availability .page-intro {
+        padding: 18px;
+    }
+
+    #reports .page-intro {
+        flex-direction: row;
         flex-wrap: wrap;
+    }
+
+    .search-input {
+        width: 100%;
     }
 }
 
@@ -776,11 +1304,11 @@ tbody tr:hover {
         padding: 0 10px;
     }
 
-    .welcome-banner h2 {
+    .hero-content h2 {
         font-size: 19px;
     }
 
-    .topbar {
-        min-height: 85px;
+    .panel {
+        padding: 13px;
     }
 }
