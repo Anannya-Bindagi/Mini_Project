@@ -91,6 +91,34 @@ VALUES
 ('KA02GH3456', 'Honda City', 2500.00),
 ('KA04IJ7890', 'Toyota Innova', 3000.00);
 
+-- =====================================================
+-- DAY 3 - ADDITIONAL VEHICLE DATA
+-- =====================================================
+
+INSERT INTO VEHICLE_TABLE
+(registration_number, model, rental_price)
+VALUES
+('KA06KL1234', 'Mahindra XUV300', 2300.00),
+('KA07MN5678', 'Kia Seltos', 2500.00),
+('KA08PQ9012', 'Hyundai Creta', 2800.00),
+('KA09RS3456', 'Maruti Brezza', 2000.00),
+('KA10TU7890', 'Toyota Urban Cruiser', 2700.00);
+
+SELECT
+    vehicle_id,
+    registration_number,
+    model,
+    rental_price
+FROM VEHICLE_TABLE
+ORDER BY vehicle_id;
+
+SELECT
+    registration_number,
+    COUNT(*) AS registration_count
+FROM VEHICLE_TABLE
+GROUP BY registration_number
+HAVING COUNT(*) > 1;
+
 
 -- =====================================================
 -- 7. INSERT SAMPLE CUSTOMER RECORDS
